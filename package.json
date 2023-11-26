@@ -2,7 +2,8 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
   },
   "type": "module",
   "description": "[![Actions Status](https://github.com/ilija8897/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ilija8897/frontend-project-44/actions)",
@@ -22,7 +23,8 @@
   "homepage": "https://github.com/ilija8897/frontend-project-44#readme",
   "dependencies": {
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.29.0"
+    "eslint-plugin-import": "^2.29.0",
+    "readline-sync": "^1.4.10"
   },
   "devDependencies": {
     "eslint": "^8.54.0"
