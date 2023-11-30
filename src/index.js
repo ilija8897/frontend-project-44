@@ -8,6 +8,7 @@ export const game = {
     userAnswer: null,
     currentIssue: null,
     gameSettings: null,
+    isFail: false,
     start(gameSettings) {
         this.gameSettings = gameSettings;
         this.greeting();
@@ -36,11 +37,12 @@ export const game = {
             if (this.rightAnswers < NUMBER_OF_ROUNDS) this.question();
         }
         if (this.userAnswer !== String(this.rightAnswer)) {
-            console.log(
+            if (!this.isFail) console.log(
                 `'${this.userAnswer}' is wrong answer ;(. 
                 Correct answer was '${this.rightAnswer}'.
                 Let's try again, ${this.userName}!`,
             );
+            this.isFail = true;
         }
     },
 }
