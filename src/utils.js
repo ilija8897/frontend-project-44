@@ -19,3 +19,13 @@ export const getRandomProgression = (step, min = 5, max = 10) => {
 
     return randomArray;
 };
+
+export const isPrimeNumber = (number) => {
+    if (number < 2) return 'no';
+
+    let result = 'yes';
+    for (let index = 2; index < number; index++) {
+        if (number % index === 0) return 'no';
+    }
+    return result;
+};
