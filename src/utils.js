@@ -1,31 +1,33 @@
-export const getRandomOperation = (operations) => (operations[Math.floor(Math.random() * operations.length)]);
+export const getRandomOperation = (operations) => (
+  (operations[Math.floor(Math.random() * operations.length)])
+);
 
-export const getRandomNumber = (min = 1, max = 99) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+export const getRandomNumber = (min = 1, max = 99) => (
+  Math.floor(Math.random() * (max - min + 1)) + min
+);
 
 export const getRandomProgression = (step, min = 5, max = 10) => {
-    const arrayLength = getRandomNumber(min, max);
+  const arrayLength = getRandomNumber(min, max);
 
-    const randomArray = [];
+  const randomArray = [];
 
-    while(randomArray.length < arrayLength) {
-        if (randomArray.length === 0) {
-            randomArray.push(getRandomNumber());
-        }
+  while (randomArray.length < arrayLength) {
+    if (randomArray.length === 0) {
+      randomArray.push(getRandomNumber());
+    }
 
-        randomArray.push(randomArray[randomArray.length - 1] + step);
-    };
+    randomArray.push(randomArray[randomArray.length - 1] + step);
+  }
 
-    return randomArray;
+  return randomArray;
 };
 
 export const isPrimeNumber = (number) => {
-    if (number < 2) return 'no';
+  if (number < 2) return 'no';
 
-    let result = 'yes';
-    for (let index = 2; index < number; index++) {
-        if (number % index === 0) return 'no';
-    }
-    return result;
+  const result = 'yes';
+  for (let index = 2; index < number; index += 1) {
+    if (number % index === 0) return 'no';
+  }
+  return result;
 };

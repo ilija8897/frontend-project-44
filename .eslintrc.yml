@@ -13,5 +13,4 @@ rules:
   import/no-unresolved: 0
   import/no-extraneous-dependencies: 0
   no-plusplus: 0
-  indent: ["error", "4"]
-  no-tabs: 0
+  fp/no-this: 0
