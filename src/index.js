@@ -40,7 +40,7 @@ export const game = {
             if (!this.isFail) console.log(
                 `'${this.userAnswer}' is wrong answer ;(. 
                 Correct answer was '${this.rightAnswer}'.
-                Let's try again, ${this.userName}!`,
+                Let's try again, ${this.name}!`,
             );
             this.isFail = true;
         }

@@ -10,7 +10,7 @@ https://asciinema.org/a/xG8JULN3FnD63QT21BcEj7Ogl
 BrainProgreession
 https://asciinema.org/a/gOQICKASjP1eBcCKAekJXFGpD
 
-BrainProgreession
+BrainPrime
 https://asciinema.org/a/4i8EjAIZMrGnHC3pxgUAbkMJc
 
 ### Hexlet tests and linter status:
