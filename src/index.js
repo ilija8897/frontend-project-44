@@ -2,54 +2,32 @@ import readLineSync from 'readline-sync';
 
 import { NUMBER_OF_ROUNDS } from './constants.js';
 
-const gameData = {
-  name: '',
-  rightAnswers: 0,
-  userAnswer: null,
-  currentIssue: null,
-  gameSettings: null,
-  isFail: false,
-};
-
-function validate() {
-  if (gameData.userAnswer === String(gameData.rightAnswer)) {
-    console.log('Correct!');
-    gameData.rightAnswers += 1;
-    if (gameData.rightAnswers === NUMBER_OF_ROUNDS) console.log(`Congratulations, ${gameData.name}!`);
-  }
-  if (gameData.userAnswer !== String(gameData.rightAnswer)) {
-    if (!gameData.isFail) {
-      console.log(
-        `'${gameData.userAnswer}' is wrong answer ;(. 
-            Correct answer was '${gameData.rightAnswer}'.
-            Let's try again, ${gameData.name}!`,
-      );
-    }
-    gameData.isFail = true;
-  }
-}
-
-function question() {
-  const issue = gameData.gameSettings.generateIssue();
-  console.log(`Question: ${issue.text}`);
-  gameData.rightAnswer = issue.answer;
-  gameData.userAnswer = readLineSync.question('Your answer: ');
-  validate();
-}
-
-function greeting() {
+function start({ taskText, generateIssue }) {
   console.log('Welcome to the Brain Games!');
   const userName = readLineSync.question('May I have your name? ');
 
   console.log(`Hello, ${userName}`);
-  console.log(gameData.gameSettings.taskText);
-  gameData.name = userName;
-}
+  console.log(taskText);
 
-function start(gameSettings) {
-  gameData.gameSettings = gameSettings;
-  greeting();
-  while (gameData.rightAnswers < NUMBER_OF_ROUNDS && !gameData.isFail) question();
+  for (let i = 1; i <= NUMBER_OF_ROUNDS; i += 1) {
+    const { text, answer } = generateIssue();
+
+    console.log(`Question: ${text}`);
+    const userAnswer = readLineSync.question('Your answer: ');
+
+    if (userAnswer === String(answer)) {
+      console.log('Correct!');
+      if (i === NUMBER_OF_ROUNDS) console.log(`Congratulations, ${userName}!`);
+    }
+    if (userAnswer !== String(answer)) {
+      console.log(
+        `'${userAnswer}' is wrong answer ;(. 
+            Correct answer was '${answer}'.
+            Let's try again, ${userName}!`,
+      );
+      break;
+    }
+  }
 }
 
 export default start;

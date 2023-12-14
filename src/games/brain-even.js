@@ -1,5 +1,7 @@
 import startGame from '../index.js';
-import { getRandomNumber } from '../utils.js';
+import getRandomNumber from '../utils/get-random-number.js';
+
+const isEven = (number) => number % 2 === 0;
 
 const gameSettings = {
   taskText: 'Answer "yes" if the number is even, otherwise answer "no".',
@@ -7,7 +9,7 @@ const gameSettings = {
     const randomNumber = getRandomNumber();
     return {
       text: randomNumber,
-      answer: randomNumber % 2 === 0 ? 'yes' : 'no',
+      answer: isEven(randomNumber) ? 'yes' : 'no',
     };
   },
 };
