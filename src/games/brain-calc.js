@@ -1,7 +1,7 @@
 import startGame from '../index.js';
 import getRandomNumber from '../utils/get-random-number.js';
 
-const OPERATIONS = ['plus', 'minus', 'multiply'];
+const OPERATIONS = ['+', '-', '*'];
 
 function getRandomOperation(firstNum, secondNum, operationID) {
   switch (operationID) {
@@ -21,7 +21,7 @@ function getRandomOperation(firstNum, secondNum, operationID) {
         answer: parseInt(firstNum, 10) * parseInt(secondNum, 10),
       });
     default:
-      return null;
+      throw new Error('Wrong operationID!');
   }
 }
 

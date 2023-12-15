@@ -2,13 +2,9 @@ import startGame from '../index.js';
 import getRandomNumber from '../utils/get-random-number.js';
 
 const getRandomProgression = (step, firstNum, arrayLength) => {
-  const randomArray = [];
+  const randomArray = [firstNum];
 
-  while (randomArray.length < arrayLength) {
-    if (randomArray.length === 0) {
-      randomArray.push(firstNum);
-    }
-
+  for (let i = randomArray.length; i < arrayLength; i += 1) {
     randomArray.push(randomArray[randomArray.length - 1] + step);
   }
 

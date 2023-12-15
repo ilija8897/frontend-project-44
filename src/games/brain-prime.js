@@ -2,11 +2,11 @@ import startGame from '../index.js';
 import getRandomNumber from '../utils/get-random-number.js';
 
 const isPrimeNumber = (number) => {
-  if (number < 2) return 'no';
+  if (number < 2) return false;
 
-  const result = 'yes';
+  const result = true;
   for (let index = 2; index < number; index += 1) {
-    if (number % index === 0) return 'no';
+    if (number % index === 0) return false;
   }
   return result;
 };
@@ -18,7 +18,7 @@ const gameSettings = {
 
     return {
       text: randomNumber,
-      answer: isPrimeNumber(randomNumber),
+      answer: isPrimeNumber(randomNumber) ? 'yes' : 'no',
     };
   },
 };

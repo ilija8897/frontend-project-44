@@ -15,10 +15,6 @@ function start({ taskText, generateIssue }) {
     console.log(`Question: ${text}`);
     const userAnswer = readLineSync.question('Your answer: ');
 
-    if (userAnswer === String(answer)) {
-      console.log('Correct!');
-      if (i === NUMBER_OF_ROUNDS) console.log(`Congratulations, ${userName}!`);
-    }
     if (userAnswer !== String(answer)) {
       console.log(
         `'${userAnswer}' is wrong answer ;(. 
@@ -26,7 +22,10 @@ function start({ taskText, generateIssue }) {
             Let's try again, ${userName}!`,
       );
       break;
+    } else {
+      console.log('Correct!');
     }
+    if (i === NUMBER_OF_ROUNDS) console.log(`Congratulations, ${userName}!`);
   }
 }
 
